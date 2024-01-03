@@ -38,7 +38,7 @@ function compare(eq, testName, pathToProcess, val) {
     // if the control file character count file doesn't exist, write it
     write(
       path.join(__dirname, "fixtures", `${testName}.control.md`),
-      source.trim().length,
+      `${source.trim().length}`,
     );
   }
 
@@ -100,6 +100,10 @@ test("05 - updates a key 2", () => {
 
 test("06 - updates a key 3", () => {
   compare(equal, "bug3", "gh.yz", "3");
+});
+
+test("07 - updates a key 4", () => {
+  compare(equal, "bug4", "b.1.yz", "1");
 });
 
 test.run();
